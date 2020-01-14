@@ -43,6 +43,16 @@ What if we could use the speed and precision of the keyboard for navigation?
 - Vim is a "modal editor"
 - Toggle the "mode" of the editor to use keyboard for both navigation and insertion
 - Non-modal editors are always in "insert" mode. Anything you type is inserted directly
+- Three main modes are insert, command, and visual 
+
+
+# Insert mode
+
+
+# Command mode
+
+
+# Visual mode
 
 
 # Text objects
@@ -72,11 +82,11 @@ What if we could use the speed and precision of the keyboard for navigation?
 # TODO: Other verb examples
 
 
-# Additional tools
+# Bonus
 - Macros
 - Column editing
 - Find & Replace
-
+- command line vim
 
 # Repeated actions (1)
 
