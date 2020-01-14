@@ -1,0 +1,116 @@
+
+- Let's take a step back and think about the tools we have to edit text
+- Mouse and Keyboard
+- Mouse -> Pretty good at selecting things but not great at fast precision
+
+- Keyboard -> Great at precision but most of the keys are already used for inserting content. Only a few keys for navigation, and some modifiers on those keys to move around a little bit easier
+
+Some examples where navigation and editing usually involves a lot of mouse work and many arrow key presses.
+
+1) Navigating to and editing very specific parts of text
+
+```
+<div><span class="change-me">I love html</span></div>
+```
+
+a) Changing the class name
+b) Changing content inside of the span
+b) Replacing all content inside of the div
+
+
+2) Repeating the same set of actions (simple)
+
+```
+properties = {
+    "first_name": first_name,
+    "last_name": last_name,
+    "email": email,
+}
+```
+
+To
+
+```
+properties = {}
+
+if (my_condition) {
+    properties["first_name"] = first_name
+    properties["last_name"] = last_name
+    properties["email"] = email
+}
+```
+
+3) Repeating more complicated actions
+
+```
+Mia
+Lucija
+Ema
+Ana
+Nika
+Ivan
+Matej
+Marko
+Filip
+Matea
+```
+
+to
+
+```
+1. Mia
+2. Lucija
+3. Ema
+4. Ana
+5. Nika
+6. Ivan
+7. Matej
+8. Marko
+9. Filip
+10. Matea
+```
+
+4) Column editing
+
+
+```
+event_name = event.get('event_name', None)
+event_date = event.get('event_date', None)
+event_time = event.get('event_time', None)
+event_author = event.get('event_author', None)
+event_source = event.get('event_source', None)
+event_location = event.get('event_location', None)
+```
+
+to
+
+```
+name = event.get('event_name', None)
+date = event.get('event_date', None)
+time = event.get('event_time', None)
+author = event.get('event_author', None)
+source = event.get('event_source', None)
+location = event.get('event_location', None)
+```
+
+
+5) Finding and replacing within a scope
+
+```
+if (has_date) {
+    new_date = '2018'
+    old_date = '2017'
+    birth_date = '2019';
+}
+```
+
+to
+
+```
+if (has_date) {
+    new_day = '2018'
+    old_day = '2017'
+    birth_day = '2019';
+}
+```
+
