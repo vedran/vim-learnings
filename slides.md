@@ -1,28 +1,44 @@
-# Vim with Vedran
+# Vim  Basics
 
 
-# Vim with Vedran
+# Vim  Basics
 - What is Vim?
-- Why does anyone use it?
-- What is Modal Editing?
-- What are Text Objects?
-- Examples
+- What problem does it solve?
+- How it works
+- Examples of Vim magic
 - Q&A
+ 
+ 
+Ask questions at any time!
 
 
-# What is Vim?
+# What  is  Vim?
+
+"How to exit the Vim editor" has made up about .005% of question traffic
+That is, one out of every 20,000 visits to Stack Overflow questions.
+- Stack Overflow, 2017
+
+Solution: <escape>:q!
+
+
+# What  is  Vim?
+
 - Vim is a text editor based on the original vi editor that came out in 1976
 - Ships with most linux systems
 - Most popular editors (Eclipse, IntelliJ, Visual Studio, VSCode) have a Vim mode or plugin.
-- Many many features, we'll just cover some very basics today
+- Many many features, we'll just cover some very basics + my favourites today
 
 
 # Why?
-- Why do people still an editor that came out the same year as Rocky I?
-- What's wrong with regular (non-modal) text editors?
+- Why do people still use an editor that came out the same year as Rocky I?
+- Isn't nano / gedit / notepad / vscode / eclipse good enough??
 
 
-# Text Editing
+# Why?
+ 
+Text Navigation tools
+ 
+
 Mouse:
 - Mostly used for navigation
 - Good for selection
@@ -31,66 +47,159 @@ Mouse:
  
 Keyboard:
 - Mostly used for inserting text
-- Great at precision
+- Great at precision (exception some MBP)
 - Most keys are for insertions, not navigation
 - Fast
  
-What if we could use the speed and precision of the keyboard for navigation?
+Can we leverage the speed and precision of the keyboard for navigation?
 
 
-# Modal editing
+# Modal  editing
 
 - Vim is a "modal editor"
+- Analogy of Ctrl-V
 - Toggle the "mode" of the editor to use keyboard for both navigation and insertion
-- Non-modal editors are always in "insert" mode. Anything you type is inserted directly
-- Three main modes are insert, command, and visual 
+- Vim's three main modes are called insert, visual, and normal
+- Insert mode is what normal text editors are like
+- Visual mode is the keyboard equivalent of highlighting text
+- Normal mode "secret sauce" in Vim.
 
 
-# Insert mode
+# Navigation
 
+Navigation Challenge!
 
-# Command mode
-
-
-# Visual mode
-
-
-# Text objects
-
-- Most editors treat text as strings of characters. But we group strings of characters into words, sentences, paragraphs, code blocks, etc.
-- IDEs can give semantic meanings to these characters, but usually just for highlighting and and some refactoring, not much for navigation.
-
-
-# Modal navigation
-
-- Combine modal editing and text objects
-- Navigate through the file by words, paragraphs, code blocks
-- Text as objects, commands can be considered as verbs
-- Some examples
-
-# Change "verb"
+Example #1:
 
 ```html
-<div><span class="change-me" onclick="handler(state, props)">I love html</span></div>
+<div><span class="change-me" onclick="handler(state, props)">I love HTML</span></div>
 ```
 
-- Change the class name
-- Change the content inside of the span
-- Replace all content inside of the div
-- Replace all arguments in the click handler
+-
+ 
 
-# TODO: Other verb examples
+Navigate to...
+ 
+- The "change-me" class
+- The closing angle bracket of <span>
+- The opening angle bracket of <span>
+- The "I" of "I love HTML"
+ 
 
 
-# Bonus
-- Macros
+# Normal  Mode
+
+How it works:
+- The default mode in vim
+- Allows for keyboard navigation beyond arrow keys
+- Most editors treat text as strings of characters
+- Humans (and vim) group strings of characters into text objects
+- Words, sentences, paragraphs, code blocks, etc
+- Vim commands can often be thought of as verbs, modifiers, and text objects
+
+
+# Normal  Mode
+
+Verbs:
+- [c]hange
+- [d]elete
+- [y]ank (copy)
+
+Modifiers:
+- [i]nside
+- [t]il
+- [f]ind
+
+Text objects:
+- [w]ord
+- [t]ag
+- ) sentence
+
+Note: Some of these can be used standalone
+
+
+# Normal  Mode
+
+[F]ind command
+
+```html
+<div><span class="change-me" onclick="handler(state, props)">I love HTML</span></div>
+```
+
+-
+
+Navigate to the following in under 3 keystrokes:
+ 
+- The "change-me" class: f"
+- The closing angle bracket of <span>: f>
+- The opening angle bracket of <span> F<
+- The "I" of "I love HTML": fI
+
+
+# Normal  Mode
+
+[C]hange command
+
+```html
+<div><span class="change-me" onclick="handler(state, [props, otherProps])">I love HTML</span></div>
+```
+
+-
+
+Make the following changes
+
+- Change the class name: ci"
+- Change "HTML" to "XML": fHcwXML
+- Replace all of the content inside of the span: cit
+- Replace content of the list in the click handler: f[ci[
+- Replace all arguments in the click handler: f(ci(
+- Replace all content inside of the div: ^cit
+
+
+# Normal  Mode
+
+[D]elete command
+
+```python
+# This is a standalone comment
+
+# This is a
+# long comment
+# across several lines
+# above a function
+def a():
+    func1("A seven nation army couldn't hold me back")
+    func2("Don't want to hear about it. Every single one's got a story to tell")
+```
+
+-
+
+Make the following changes
+
+- Delete the standalone comment: dd
+- Delete the 4 lines of comments: 4dd
+- Delete the argument passed into func1: di(
+- Delete the first sentence of the argument in func2: d)
+
+
+# Favourites
+- Repeating actions
 - Column editing
 - Find & Replace
-- command line vim
+- Inserting lines
+- Command line vim
 
-# Repeated actions (1)
 
-From
+# Repeating  actions
+
+Record macros with 'q' and a letter to save the macro to.
+Run the macro with @<letter name>.
+
+-
+ 
+Example
+
+From:
 
 ```javascript
 properties = {
@@ -99,8 +208,10 @@ properties = {
     "email": email,
 }
 ```
-To
-
+-
+ 
+To:
+ 
 ```javascript
 properties = {}
 
@@ -112,11 +223,15 @@ if (my_condition) {
 ```
 
 
-# Repeated actions (2)
+# Repeating  actions
 
-From
+Use macros to quickly add leading numbers to a list
 
-```
+Example:
+
+ 
+From;
+
 Mia
 Lucija
 Ema
@@ -127,11 +242,9 @@ Matej
 Marko
 Filip
 Matea
-```
 
-to
+To:
 
-```
 1. Mia
 2. Lucija
 3. Ema
@@ -142,40 +255,93 @@ to
 8. Marko
 9. Filip
 10. Matea
+
+
+# Column  Editing
+
+Visual block mode to add 'event_' prefix to all variables
+
+```javascript
+name = event.get('event_name', None)
+date = event.get('event_date', None)
+time = event.get('event_time', None)
+author = event.get('event_author', None)
+source = event.get('event_source', None)
+location = event.get('event_location', None)
 ```
 
 
-## Column Editing
 
-```
-event_name = event.get('event_name', None)
-event_date = event.get('event_date', None)
-event_time = event.get('event_time', None)
-event_author = event.get('event_author', None)
-event_source = event.get('event_source', None)
-event_location = event.get('event_location', None)
-```
+# Find  &  replace
 
+Use visual mode and find/replace to change the word "date" to "day"
 
+From:
 
-
-# Find & replace
-
-```
-if (has_date) {
+```javascript
+if (matches) {
     new_date = '2018'
     old_date = '2017'
     birth_date = '2019';
 }
 ```
+-
+ 
+To:
 
-to
-
-```
-if (has_date) {
+```javascript
+if (matches) {
     new_day = '2018'
     old_day = '2017'
     birth_day = '2019';
 }
 ```
 
+
+# Joining  lines
+
+Use 'J' to join lines together
+
+```javascript
+const {
+    a,
+    b,
+    c,
+} = d;
+```
+
+
+# Inserting  lines
+
+Use 'O' and 'o' to insert a new line before and after current line
+
+```javascript
+if(a === b) {
+    func1();
+}
+```
+-
+ 
+- Add func2() call after func1();
+- Add func0() call before func1();
+
+
+# Command  line
+
+- Enable in bash with "set -o vi"
+- Many normal mode features are available
+
+Example:
+
+```
+> curl -XPOST "https://api.mixpanel.com/track/" -d '{"event": "$create_alias", "properties": { "distinct_id": "bd92a702655fef31", "alias": "ALIAS_TEST", "token": "MY_TOKEN" } }'
+
+- Change "$create_alias" to "$identify"
+- Change "distinct_id" to "distinct_ids"
+```
+
+
+# Q  &  A
+
+- Thanks!
+- Any questions?
