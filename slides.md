@@ -1,7 +1,11 @@
-# Vim  Basics
+# Vim
+- Don't forget to record
 
 
-# Vim  Basics
+# Vim
+
+
+# Vim
 - What is Vim?
 - What problem does it solve?
 - How it works
@@ -18,7 +22,7 @@ Ask questions at any time!
 That is, one out of every 20,000 visits to Stack Overflow questions.
 - Stack Overflow, 2017
 
-Solution: <escape>:q!
+Solution: <escape>:qa!
 
 
 # What  is  Vim?
@@ -89,37 +93,6 @@ Navigate to...
 
 # Normal  Mode
 
-How it works:
-- The default mode in vim
-- Allows for keyboard navigation beyond arrow keys
-- Most editors treat text as strings of characters
-- Humans (and vim) group strings of characters into text objects
-- Words, sentences, paragraphs, code blocks, etc
-- Vim commands can often be thought of as verbs, modifiers, and text objects
-
-
-# Normal  Mode
-
-Verbs:
-- [c]hange
-- [d]elete
-- [y]ank (copy)
-
-Modifiers:
-- [i]nside
-- [t]il
-- [f]ind
-
-Text objects:
-- [w]ord
-- [t]ag
-- ) sentence
-
-Note: Some of these can be used standalone
-
-
-# Normal  Mode
-
 [F]ind command
 
 ```html
@@ -150,7 +123,6 @@ Make the following changes
 
 - Change the class name: ci"
 - Change "HTML" to "XML": fHcwXML
-- Replace all of the content inside of the span: cit
 - Replace content of the list in the click handler: f[ci[
 - Replace all arguments in the click handler: f(ci(
 - Replace all content inside of the div: ^cit
@@ -230,13 +202,11 @@ Use macros to quickly add leading numbers to a list
 Example:
 
  
-From;
+From:
 
 Mia
-Lucija
 Ema
 Ana
-Nika
 Ivan
 Matej
 Marko
@@ -246,15 +216,13 @@ Matea
 To:
 
 1. Mia
-2. Lucija
-3. Ema
-4. Ana
-5. Nika
-6. Ivan
-7. Matej
-8. Marko
-9. Filip
-10. Matea
+2. Ema
+3. Ana
+4. Ivan
+5. Matej
+6. Marko
+7. Filip
+8. Matea
 
 
 # Column  Editing
@@ -282,7 +250,7 @@ From:
 if (matches) {
     new_date = '2018'
     old_date = '2017'
-    birth_date = '2019';
+    birth_date = '2019'
 }
 ```
 -
@@ -293,7 +261,7 @@ To:
 if (matches) {
     new_day = '2018'
     old_day = '2017'
-    birth_day = '2019';
+    birth_day = '2019'
 }
 ```
 
