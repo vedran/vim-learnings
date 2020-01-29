@@ -311,3 +311,5 @@ Example:
 
 - Thanks!
 - Any questions?
+- Feedback: https://forms.gle/xpBkw3ZyuTSRmn2r7
+- Slides: https://github.com/vedran/vim-learnings
