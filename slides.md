@@ -208,7 +208,6 @@ Mia
 Ema
 Ana
 Ivan
-Matej
 Marko
 Filip
 Matea
@@ -219,10 +218,9 @@ To:
 2. Ema
 3. Ana
 4. Ivan
-5. Matej
-6. Marko
-7. Filip
-8. Matea
+5. Marko
+6. Filip
+7. Matea
 
 
 # Column  Editing
