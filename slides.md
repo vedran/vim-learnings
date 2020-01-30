@@ -167,8 +167,6 @@ Make the following changes
 Record macros with 'q' and a letter to save the macro to.
 Run the macro with @<letter name>.
 
--
- 
 Example
 
 From:
@@ -181,9 +179,8 @@ properties = {
 }
 ```
 -
- 
 To:
- 
+
 ```javascript
 properties = {}
 
